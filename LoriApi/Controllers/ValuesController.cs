@@ -13,7 +13,7 @@ namespace LoriApi.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "valueX", "valueZ" };
+            return new string[] { "valueX", "valueY" };
         }
 
         // GET api/values/5
