@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoriApi", "LoriApi\LoriApi.csproj", "{912C60C5-63AD-4534-BC34-DEE62D90FEBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{912C60C5-63AD-4534-BC34-DEE62D90FEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912C60C5-63AD-4534-BC34-DEE62D90FEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912C60C5-63AD-4534-BC34-DEE62D90FEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912C60C5-63AD-4534-BC34-DEE62D90FEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0725926-72E1-4F9A-BDF8-E19B4B30A324}
+	EndGlobalSection
+EndGlobal
