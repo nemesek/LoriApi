@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-    <link href="css/chatbox.css" rel="stylesheet">
   </head>
 
   <body class="form-body">
@@ -25,17 +24,17 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="index.html"><img src="assets/Lori_Logo.png" class="img-responsive logo"></a>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link text-white" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link text-white" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">FAQ</a>
+              <a class="nav-link text-white" href="#">FAQ</a>
             </li>
           </ul>
         </div>
@@ -79,6 +78,7 @@
 
         </ul>
       </div>
+      <div class="gradiient-line"></div>
       <!-- /#sidebar-wrapper -->
 
       <!-- Page Content -->
@@ -87,7 +87,7 @@
           <div class=""><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fa fa-info" aria-hidden="true"></i></a></div>
           <div class="container">
             <div class="text-center"><img class="lori-img img-responsive" src="assets/LORI.png" alt="Image of Lori"></div>
-            <h3 class="text-center pt-4 pb-3">Hi, I’m LORI. Your personal Mortgage Loan Processing assistant, available 24/7. I’ll help you get pre-approved and on your way to a new home step-by-step. Ready to go?</h3>
+            <h3 class="text-center pt-4 pb-3">Hello! I’m LORI, your personal Mortgage Loan Processing assistant. I’ll help you get pre-approved and on your way to a new home step by step. Ready to go? :)</h3>
 
             <div class="row">
               <div class="col-md-6 push-md-3">
@@ -103,15 +103,19 @@
               </div>
             </div>
             <div class="center-block text-center pt-4">
-              <button type="button" class="btn btn-primary text-uppercase">Let's do this in English</button>
-              <button type="button" class="btn btn-primary text-uppercase">Vamos en Espanol</button>
+              <button type="button" id="engBtn" class="btn btn-primary text-uppercase">Let's do this in English</button>
+              <button type="button" id="esBtn" class="btn btn-primary text-uppercase">Vamos en Espanol</button>
             </div>
-            <!-- content end -->
+            <div id="containerForm">
+              <h3 id="loriResp1" class="loriResp pt-4 pb-3 text-center"></h3>
+              <h3 id="loriResp2" class="loriResp pt-4 pb-3 text-center" style="color: #0275d8;"></h3>
+              <div id="loriResp3" class="loriResp pt-4 pb-3 text-center"></div>
+              <!-- content end -->
+            </div>
           </div>
         </div>
-      </div>
-      <!-- /#page-content-wrapper -->
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <!-- /#page-content-wrapper -->
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
   <defs>
     <filter id="goo">
       <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
@@ -121,24 +125,31 @@
   </defs>
 </svg>
 
-    </div>
-    <!-- /#wrapper -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js "></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
 
-    <!-- /#sidebar-wrapper -->
-    <footer class="footer "></footer>
-    <script src="js/bootstrap.min.js "></script>
-    <!-- Menu Toggle Script -->
-    <script>
-      $("#menu-toggle ").click(function(e) {
-        e.preventDefault();
-        $("#wrapper ").toggleClass("toggled ");
-      });
-    </script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/TweenMax.min.js"></script>
+      </div>
+      <!-- /#wrapper -->
+      <!-- text box -->
+
+      <div class="popup-messages-footer">
+        <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+        <div class="btn-footer">
+          <button class="bg_none"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+          <button class="bg_none"><i class="fa fa-paperclip" aria-hidden="true"></i></button>
+          <button class="bg_none pull-right"><i class="fa fa-paper-plane" id="sendText" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <!-- end of text box -->
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js "></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+      <!-- /#sidebar-wrapper -->
+      <footer class="footer "></footer>
+      <script src="js/bootstrap.min.js "></script>
+      <script src="js/main.js "></script>
+      <!-- Menu Toggle Script -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/TweenMax.min.js"></script>
   </body>
 
 </html>
