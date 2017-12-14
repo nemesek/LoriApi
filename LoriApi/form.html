@@ -45,44 +45,46 @@
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-          <li class="sidebar-brand">
-            <h2 class="pb-2">Progress Bar</h2>
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                40% Complete (success)
-              </div>
+          <h2 class="pb-2 progress-bar-text">Progress Bar</h2>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+              40% Complete (success)
             </div>
+          </div>
+          <li class="sidebar-brand">
+
           </li>
           <li>
-            <h4>Step 1:</h4>
-            <a href="#">• Mortgage Pre-Approval Process</a>
+            <h6>1. Mortgage Pre-Approval Process</h6>
           </li>
           <li>
-            <h4>Step 2:</h4>
+            <h6>2. Loan Application Process</h6>
             <ul>
-              <a href="#">• Hello</a>
+              <a href="#">• Employment</a>
+              <a href="#">• Income</a>
+              <a href="#">• Assets</a>
+              <a href="#">• Debts</a>
+              <a href="#">• Property Information</a>
+              <a href="#">• Financial Blemishes</a>
+              <a href="#">• Type of Mortgage</a>
             </ul>
           </li>
           <li>
-            <h4>Step 3:</h4>
-            <ul>
-              <a href="#">• Hello</a>
-            </ul>
+            <h6>3. Mortgage Loan Processing</h6>
           </li>
           <li>
-            <h4>Step 4:</h4>
-            <ul>
-              <a href="#">• Hello</a>
-            </ul>
+            <h6>4. Mortgage Loan Underwriting</h6>
+          </li>
+          <li>
+            <h6>5. Mortgage Closing Process</h6>
           </li>
 
         </ul>
       </div>
-      <div class="gradiient-line"></div>
       <!-- /#sidebar-wrapper -->
 
       <!-- Page Content -->
-      <div id="page-content-wrapper" class="col-sm-12">
+      <div id="page-content-wrapper" class="page-content-wrapper" class="col-sm-12">
         <div class="container-fluid">
           <div class=""><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fa fa-info" aria-hidden="true"></i></a></div>
           <div class="container">
@@ -131,11 +133,12 @@
       <!-- text box -->
 
       <div class="popup-messages-footer">
-        <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+        <input id="status_message" placeholder="Type a message..." class="pb-1" name="message"></input>
+        <hr>
         <div class="btn-footer">
           <button class="bg_none"><i class="fa fa-microphone" aria-hidden="true"></i></button>
           <button class="bg_none"><i class="fa fa-paperclip" aria-hidden="true"></i></button>
-          <button class="bg_none pull-right"><i class="fa fa-paper-plane" id="sendText" aria-hidden="true"></i></button>
+          <button class="bg_none"><i class="fa fa-paper-plane" id="sendText" aria-hidden="true"></i></button>
         </div>
       </div>
       <!-- end of text box -->

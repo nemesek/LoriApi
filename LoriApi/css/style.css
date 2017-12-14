@@ -142,6 +142,12 @@ h3 {
   text-align: right;
 }
 
+.page-content-wrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
 form {
   padding-top: 3em;
 }
@@ -182,6 +188,9 @@ input {
   background: transparent;
   outline: none;
   display: inline-block;
+  color: #4A5063;
+  font-size: 22px;
+  padding: 10px;
 }
 
 button {
@@ -380,23 +389,23 @@ a.demo {
 }
 
 .bg_none i {
-  border: 1px solid #00c9ff;
+  /*border: 1px solid #00c9ff;*/
   border-radius: 25px;
-  color: #00c9ff;
+  background-color: #0275d8;
+  color: #fff;
+  padding: 4px;
   font-size: 17px;
-  height: 33px;
   line-height: 30px;
-  width: 33px;
+  width: 37px;
+  height: 37px;
 }
 
 .bg_none:hover i {
-  border: 1px solid #000;
   border-radius: 25px;
-  color: #000;
+  color: #fff;
   font-size: 17px;
-  height: 33px;
+  background-color: #0c5797;
   line-height: 30px;
-  width: 33px;
 }
 
 .bg_none {
@@ -430,6 +439,9 @@ a.demo {
   bottom: 0;
   position: absolute;
   width: 100%;
+  padding-left: 21px;
+  padding-right: 21px;
+  padding-bottom: 9px;
 }
 
 .popup-messages-footer .btn-footer {
