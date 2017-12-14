@@ -5,15 +5,51 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\brickwall.png" />
+    <None Include="wwwroot\assets\city.png" />
+    <None Include="wwwroot\css\bootstrap-grid.css" />
+    <None Include="wwwroot\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\css\bootstrap.css" />
+    <None Include="wwwroot\css\bootstrap.css.map" />
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\css\simple-sidebar.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\assets\LORI.png" />
+    <None Include="wwwroot\assets\Lori_Logo.png" />
+    <None Include="wwwroot\form.html" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery.min.js" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\js\TweenMax.min.js" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap-grid.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\vendor\jquery\jquery.js" />
+    <None Include="wwwroot\vendor\jquery\jquery.min.js" />
   </ItemGroup>
 
 </Project>

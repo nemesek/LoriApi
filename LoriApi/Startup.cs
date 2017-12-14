@@ -35,6 +35,7 @@ namespace LoriApi
             }
 
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }
