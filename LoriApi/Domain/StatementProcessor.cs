@@ -18,27 +18,11 @@ namespace LoriApi.Domain
         {
             return EventSentenceMap[businessEvent.EventId]();
         }
-        //private static readonly Dictionary<int, Func<IQuestion>> QuestionMap = new Dictionary<int, Func<IQuestion>>
-        //{
-        //    {1, ()=> new ReadyToGetStarted()},
-        //    //{2, ()=> new QuestionTwo()},
-        //    {3, ()=> new HaveYouAreadyDecidedOnAHome()}
-        //};
-        //public IQuestion BeginLoanInterview()
-        //{
-        //    return BuildQuestion(1);
 
-        //}
-        //public IQuestion GetNextQuestion(IQuestion question, string answer)
-        //{
-        //    return question.GetNextSentence(answer);
-        //    //var id = question.GetNextQuestion(answer);
-        //    //return BuildQuestion(id);
-        //}
+        public ISentence ProcessEvent(Events.Events businessEventId)
+        {
+            return EventSentenceMap[businessEventId]();
+        }
 
-        //private static IQuestion BuildQuestion(int id)
-        //{
-        //    return QuestionMap[id]();
-        //}
     }
 }

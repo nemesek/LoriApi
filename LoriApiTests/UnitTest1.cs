@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using LoriApi.Domain;
+using LoriApi.Domain.Assertions;
 using LoriApi.Domain.Events;
 using LoriApi.Domain.Questions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -160,6 +161,32 @@ namespace LoriApiTests
 
             // assert
             Assert.AreEqual("So you earn $75,000 annually?", confirmSalaryAgain.DisplayText);
+        }
+
+        [TestMethod]
+        public void AssertSalary_GetNextQuestion_ReturnsOkProvidingAssetsAndDebts()
+        {
+            // arrange
+            var target = new AssertSalary("Foo");
+
+            // act
+            var result = target.GetNextSentence("Bar");
+
+            // asserts
+            Assert.AreEqual(Sentences.OkToProvideAssetsAndDebts, result.SentenceId);
+        }
+
+        [TestMethod]
+        public void OkProvidingAssetsAndDebts_GetNextQuestion_ReturnsDeclareNextSteps()
+        {
+            // arrange
+            var target = new OkProvidingAssetsAndDebts();
+
+            // act
+            var result = target.GetNextSentence("Hmm, not really.");
+
+            // assert
+            Assert.AreEqual(Sentences.DeclareNextSteps, result.SentenceId);
         }
 
     }

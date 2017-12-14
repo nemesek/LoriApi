@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LoriApi.Domain.Questions;
 
-namespace LoriApi.Domain.Assertions
+namespace LoriApi.Domain.Declaratives
 {
-    public class AssertSalary : ISentence
+    public class DeclareNextSteps : ISentence
     {
         private readonly string _displayText;
-        public AssertSalary(string displayText)
+        public DeclareNextSteps(string displayText)
         {
             _displayText = displayText;
         }
-        public Sentences SentenceId => Sentences.AssertSalary;
+
+        public Sentences SentenceId => Sentences.DeclareNextSteps;
         public string DisplayText => _displayText;
         public ISentence GetNextSentence(string incomingSentence)
         {
-            var conversation = new Conversation("foo", 1);
-            return conversation.GetNextSentence(this);
+            return new DeclareThanks();
         }
 
         public List<string> EquilaventQuestions { get; }

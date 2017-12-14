@@ -12,7 +12,10 @@
         CanYouVerifyCurrentEmployment = 8,
         CanYouVerifyCurrentSalary = 9,
         ConfirmSalary = 10,
-        AssertSalary = 11
+        AssertSalary = 11,
+        OkToProvideAssetsAndDebts = 12,
+        DeclareNextSteps = 13,
+        DeclareThanks = 14
 
     }
 }

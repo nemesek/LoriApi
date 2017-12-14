@@ -8,7 +8,7 @@ namespace LoriApi.Domain.Questions
     public class OkToGetIncomeAndEmploymentInfo : ISentence
     {
         public Sentences SentenceId => Sentences.OkToGetIncomeAndEmploymentInfo;
-        public string DisplayText { get; }
+        public string DisplayText => "I just need to get some income and employment verification information. OK?";
 
         public ISentence GetNextSentence(string incomingSentence)
         {
