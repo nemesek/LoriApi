@@ -1,5 +1,4 @@
 // var inputText = document.getElementById("inputText").value;
-
 function relocateForm() {
   location.href = "form.html";
 }
@@ -11,8 +10,43 @@ $("#engBtn").click(function() {
   console.log("working");
 });
 
+function loadXMLDoc() {
+
+}
+
 
 $("#sendText").click(function() {
+
+  // $("#loriResp1").toggleClass('myresp');
+  var model = {
+
+  }
+
+  model.name = 'Jordan';
+  model.language = 1;
+  model.businessEventId = 1;
+
+  $.ajax({
+    url: 'http://localhost:27693/api/conversations/1',
+    type: 'POST',
+    data: JSON.stringify(model),
+    contentType: 'application/json; charset=utf-8',
+    success: function(result) {
+      console.log("TEST");
+      $("#loriResp2").toggleClass('myresp');
+    }
+  })
+  // xmlhttp.onreadystatechange = function() {
+  //   if (xmlhttp.readyState == XMLHttpRequest.DONE) { // XMLHttpRequest.DONE == 4
+  //     if (xmlhttp.status == 1) {
+  //       document.getElementById("loriResp2").innerHTML = xmlhttp.responseText;
+  //     } else if (xmlhttp.status == 2) {
+  //       console.log('There was an error 400');
+  //     } else {
+  //       console.log('something else other than 200 was returned');
+  //     }
+  //   }
+  // };
 
   // if (a === "No") {
   //   $(this).data('clicked', true);
@@ -22,8 +56,10 @@ $("#sendText").click(function() {
   // if (a === ) {
   //
   // }
-  $(this).data('clicked', true);
-  document.getElementById("loriResp2").innerHTML += "No, still looking but I'm curious to see how much I can borrow";
-  $("#loriResp2").toggleClass('myresp');
+
+
+  // $(this).data('clicked', true);
+  // document.getElementById("loriResp2").innerHTML += "No, still looking but I'm curious to see how much I can borrow";
+
 
 });
