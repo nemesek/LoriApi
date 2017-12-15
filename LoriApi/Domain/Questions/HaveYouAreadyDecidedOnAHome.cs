@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LoriApi.Domain.Questions
 {
@@ -14,7 +12,7 @@ namespace LoriApi.Domain.Questions
             {3, "NO – STILL LOOKING, BUT I’M CURIOUS HOW MUCH I CAN BORROW" }
         };
         public Sentences SentenceId => Sentences.HaveYouAlreadyDecidedOnAHome;
-        public string DisplayText => "Great. To start let's see where you are currently in process.  Have you already decided on a home?";
+        public Func<string, string> DisplayText => s => $"Great {s}. To start let's see where you are currently in process.  Have you already decided on a home?";
         
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal => false;
@@ -26,7 +24,8 @@ namespace LoriApi.Domain.Questions
             return new OkToGetIncomeAndEmploymentInfo();
 
         }
+        public bool IsAssertion => false;
 
-        
+
     }
 }

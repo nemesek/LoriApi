@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LoriApi.Domain.Questions
 {
     public class OkToGetIncomeAndEmploymentInfo : ISentence
     {
         public Sentences SentenceId => Sentences.OkToGetIncomeAndEmploymentInfo;
-        public string DisplayText => "I just need to get some income and employment verification information. OK?";
+        public Func<string, string> DisplayText => s => $"Not uncommon {s}, I just need to get some income and employment verification information. OK?";
 
         public ISentence GetNextSentence(string incomingSentence)
         {
@@ -17,5 +15,6 @@ namespace LoriApi.Domain.Questions
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal { get; }
+        public bool IsAssertion => false;
     }
 }

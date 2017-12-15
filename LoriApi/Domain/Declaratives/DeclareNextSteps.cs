@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LoriApi.Domain.Declaratives
 {
@@ -14,7 +12,7 @@ namespace LoriApi.Domain.Declaratives
         }
 
         public Sentences SentenceId => Sentences.DeclareNextSteps;
-        public string DisplayText => _displayText;
+        public Func<string, string> DisplayText => _ => _displayText;
         public ISentence GetNextSentence(string incomingSentence)
         {
             return new DeclareThanks();
@@ -22,5 +20,6 @@ namespace LoriApi.Domain.Declaratives
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal { get; }
+        public bool IsAssertion => false;
     }
 }

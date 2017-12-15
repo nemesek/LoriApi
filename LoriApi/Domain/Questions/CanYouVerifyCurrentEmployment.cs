@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LoriApi.Domain.Questions
 {
@@ -9,8 +7,7 @@ namespace LoriApi.Domain.Questions
     {
         public Sentences SentenceId => Sentences.CanYouVerifyCurrentEmployment;
 
-        public string DisplayText =>
-            "That was what I needed, thanks. Can you verify the following information for me.Current employer is CoreLogic at 1214 Office Park Drive, is that correct?";
+        public Func<string, string> DisplayText => _ => "That was what I needed, thanks. Can you verify the following information for me? Current employer is CoreLogic at 1214 Office Park Drive, is that correct?";
         public ISentence GetNextSentence(string incomingSentence)
         {
             return new CanYouVerifyCurrentSalary();
@@ -18,5 +15,6 @@ namespace LoriApi.Domain.Questions
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal { get; }
+        public bool IsAssertion => false;
     }
 }

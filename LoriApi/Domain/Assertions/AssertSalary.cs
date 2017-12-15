@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LoriApi.Domain.Questions;
 
 namespace LoriApi.Domain.Assertions
 {
@@ -14,7 +11,7 @@ namespace LoriApi.Domain.Assertions
             _displayText = displayText;
         }
         public Sentences SentenceId => Sentences.AssertSalary;
-        public string DisplayText => _displayText;
+        public Func<string,string> DisplayText => _ =>  _displayText;
         public ISentence GetNextSentence(string incomingSentence)
         {
             var conversation = new Conversation("foo", 1);
@@ -23,5 +20,6 @@ namespace LoriApi.Domain.Assertions
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal { get; }
+        public bool IsAssertion => true;
     }
 }

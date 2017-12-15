@@ -1,100 +1,122 @@
 var currentModel = {};
-// var inputText = document.getElementById("inputText").value;
+
 function relocateForm() {
-  location.href = "form.html";
+    location.href = "form.html";
 }
 
-$("#engBtn").click(function() {
-  //$(this).data('clicked', true);
-  //document.getElementById("loriResp0").innerHTML += "Great Jordan. To start let’s see where you are currently in the process. Have you already decided on a home?";
-  //$("#loriResp0").toggleClass('loriResp');
+$('#status_message').on("keypress", function (e) {
+    if (e.keyCode === 13) {
+        getNextSentence(); 
+        return false; // prevent the button click from happening
+    }
+});
+
+$("#engBtn").click(function () {
     var name = $('#nameInput').val();
     var languageId = 1;
-    beginInterview(name, languageId);
-    //debugger;
+    beginInterview(name, languageId, 1);
 });
 
- $("#spBtn").click(function() {
-   //$(this).data('clicked', true);
-   //document.getElementById("loriResp0").innerHTML += "Great Jordan. To start let’s see where you are currently in the process. Have you already decided on a home?";
-   //$("#loriResp0").toggleClass('loriResp');
-     var name = $('#nameInput').val();
-     var languageId = 2;
-     beginInterview(name, languageId);
-     //debugger;
- });
+$("#spBtn").click(function () {
+    var name = $('#nameInput').val();
+    var languageId = 2;
+    beginInterview(name, languageId, 1);
+});
 
-function beginInterview(name, languageId) {
-  var createConversationModel = {
-    "businessEventId": 1,
-    "name": name,
-    "language": languageId
-  }
-  $.ajax({
-    url: 'http://localhost:27692/api/conversations/',
-    type: 'POST',
-    data: JSON.stringify(createConversationModel),
-    contentType: 'application/json; charset=utf-8',
-    success: function(result) {
-
-      $('#loriResp1').text(result.displayText);
-      // $('#loriResp1').toggleClass('myresp');
-      currentModel.sentenceId = result.sentenceId;
-      currentModel.displayText = result.displayText;
-      currentModel.name = result.name;
-      currentModel.language = result.language;
-      // currentReply = $('#status_message').val();
-
-		$('#beginMessage').hide();
-
-      //debugger;
+function beginInterview(name, languageId, businessEventId) {
+    var createConversationModel = {
+        "businessEventId": businessEventId,
+        "name": name,
+        "language": languageId
     }
-  });
+    $.ajax({
+        url: 'http://localhost:27692/api/conversations/',
+        type: 'POST',
+        data: JSON.stringify(createConversationModel),
+        contentType: 'application/json; charset=utf-8',
+        success: function (result) {
+
+            $('#loriResp1').text(result.displayText);
+            currentModel.sentenceId = result.sentenceId;
+            currentModel.displayText = result.displayText;
+            currentModel.name = result.name;
+            currentModel.language = result.language;
+
+            $('#beginMessage').hide();
+
+        }
+    });
 }
 
 
 
-function showFileUploadModal() {
-	$('#fileUploader').show();
+function showFileUploadModal(div) {
+    //$('#fileUploader').show();
+    $('#' + div).show();
 }
 
-$("#sendText").click(function() {
+$("#sendText").click(function () { getNextSentence(); });
 
-  // $("#loriResp1").toggleClass('myresp');
- 
-  // currentReply = $('#status_message').val();
+function bindFileUploadChange() {
+    $('#w2InfoFile').change(function () {
+        $('#spinner').show();
+        $('#fileUploader').hide();
+        setTimeout(function () {
+            $('#spinner').hide();
+            beginInterview(currentModel.name, currentModel.language, 2);
+        }, 5000);
 
-  // currentStep = currentStep + 1;
+    });
+
+    $('#w2InfoFile2').change(function () {
+        $('#spinner').show();
+        $('#fileUploader2').hide();
+        setTimeout(function () {
+            $('#spinner').hide();
+            beginInterview(currentModel.name, currentModel.language, 3);
+        }, 5000);
+
+    });
+}
+
+function getNextSentence() {
+
     currentModel.userResponse = $('#status_message').val();
 
-  $.ajax({
-    url: 'http://localhost:27692/api/conversations/1',
-    type: 'PUT',
-    data: JSON.stringify(currentModel),
-    contentType: 'application/json; charset=utf-8',
-    success: function(result) {
+    $.ajax({
+        url: 'http://localhost:27692/api/conversations/1',
+        type: 'PUT',
+        data: JSON.stringify(currentModel),
+        contentType: 'application/json; charset=utf-8',
+        success: function (result) {
 
-        $('#loriResp1').text(result.displayText);
-        //debugger;
-        currentModel.sentenceId = result.sentenceId;
-        currentModel.displayText = result.displayText;
-        currentModel.name = result.name;
-        currentModel.language = result.language;
-        // $('#loriResp1').toggleClass('myresp');
+            $('#loriResp1').text(result.displayText);
+            currentModel.sentenceId = result.sentenceId;
+            currentModel.displayText = result.displayText;
+            currentModel.name = result.name;
+            currentModel.language = result.language;
 
-		if (currentModel.sentenceId === 7) {
-			showFileUploadModal();
-		}
+            if (currentModel.sentenceId === 7 ) {
+                showFileUploadModal('fileUploader');
+            }
 
-		var progress = result.sentenceId * 5;
+            if (currentModel.sentenceId === 15) {
+                showFileUploadModal('fileUploader2');
+            }
 
-		$('#progressBar').css('width', progress + '%');
-		$('#progressBar').text(progress + '%');
-    }
-  });
-});
+            setTimeout(function() { $('#status_message').val(''); }, 1000);
 
-// if (currentStep === 0) {
-//   $('#loriResp1').text(result.displayText);
-//   $('#loriResp1').toggleClass('myresp');
-// }
+            if (result.isAssertion) {
+                setTimeout(function () {
+                    getNextSentence();
+                }, 2000);
+            }
+
+            var progress = result.sentenceId * 5;
+
+            $('#progressBar').css('width', progress + '%');
+            $('#progressBar').text(progress + '%');
+        }
+    });
+}
+

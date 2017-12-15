@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LoriApi.Domain.Declaratives
 {
     public class DeclareThanks : ISentence
     {
         public Sentences SentenceId => Sentences.DeclareThanks;
-        public string DisplayText => "Thanks, you have a good night";
+        public Func<string, string> DisplayText => d => $"Thanks {d}, you too.";
         public ISentence GetNextSentence(string incomingSentence)
         {
             throw new NotImplementedException();
@@ -16,5 +14,6 @@ namespace LoriApi.Domain.Declaratives
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal { get; }
+        public bool IsAssertion => false;
     }
 }

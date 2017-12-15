@@ -15,7 +15,13 @@
         AssertSalary = 11,
         OkToProvideAssetsAndDebts = 12,
         DeclareNextSteps = 13,
-        DeclareThanks = 14
+        DeclareThanks = 14,
+        UploadOtherAssetsAndDepts = 15,
+        HowDoesPreApprovedAmountSound = 16,
+        WhatIsTheAddress = 17,
+        ConfirmAddressDetails = 18,
+        LetMeKnowWhenYouHaveTheFinalValue = 19,
+        OkToLookAtRates = 20
 
     }
 }

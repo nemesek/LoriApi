@@ -12,7 +12,8 @@ namespace LoriApi.Domain
         private static readonly Dictionary<Events.Events, Func<ISentence>> EventSentenceMap = new Dictionary<Events.Events, Func<ISentence>>
         {
             {Events.Events.LoanInterviewStarted, ()=> new HaveYouAreadyDecidedOnAHome() },
-            {Events.Events.FilesWereProcessed, ()=> new CanYouVerifyCurrentEmployment() }
+            {Events.Events.FilesWereProcessed, ()=> new CanYouVerifyCurrentEmployment() },
+            {Events.Events.AssetsAndDebtsProcessed, ()=> new HowDoesPreApprovedAmountSound() }
         };
         public ISentence ProcessEvent(IEvent businessEvent)
         {

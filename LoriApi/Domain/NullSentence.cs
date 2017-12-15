@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LoriApi.Domain.Questions
+namespace LoriApi.Domain
 {
     public class NullSentence : ISentence
     {
@@ -19,7 +17,7 @@ namespace LoriApi.Domain.Questions
         }
 
         public Sentences SentenceId => Sentences.NullQuestion;
-        public string DisplayText => _displayText;
+        public Func<string, string> DisplayText => _ => _displayText;
         public ISentence GetNextSentence(string incomingSentence)
         {
             return new NullSentence(_displayText);
@@ -27,5 +25,6 @@ namespace LoriApi.Domain.Questions
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal => true;
+        public bool IsAssertion => false;
     }
 }

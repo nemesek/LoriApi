@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using LoriApi.Domain.Assertions;
 
 namespace LoriApi.Domain.Questions
 {
     public class ConfirmSalary : ISentence
     {
-        private readonly string _displayText = string.Empty;
+        private readonly string _displayText;
         
         public ConfirmSalary(string displayText)
         {
             _displayText = displayText;
         }
         public Sentences SentenceId => Sentences.ConfirmSalary;
-        public string DisplayText => _displayText;
+        public Func<string, string> DisplayText => _ => _displayText;
         public ISentence GetNextSentence(string incomingSentence)
         {
             //var number = Regex.Replace(incomingSentence, @"[^\d]", "");
@@ -26,10 +23,11 @@ namespace LoriApi.Domain.Questions
                 return new AssertSalary("Oh gotcha, $75,000");
             }
 
-            return new AssertSalary("OK, $75,000");
+            return new OkProvidingAssetsAndDebts();
         }
 
         public List<string> EquilaventQuestions { get; }
         public bool IsTerminal { get; }
+        public bool IsAssertion => false;
     }
 }

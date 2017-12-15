@@ -34,13 +34,14 @@ namespace LoriApi.Domain
         public ConversationDto GetConversationDto(ISentence currentSentence)
         {
             var displayText = _language == 1
-                ? currentSentence.DisplayText : Translator.TranslateToSpanish(currentSentence.SentenceId);
+                ? currentSentence.DisplayText(_name) : Translator.TranslateToSpanish(currentSentence);
             return new ConversationDto
             {
                 DisplayText = displayText,
                 Language = _language,
                 Name = _name,
                 SentenceId = currentSentence.SentenceId,
+                IsAssertion = currentSentence.IsAssertion
             };
         }
     }

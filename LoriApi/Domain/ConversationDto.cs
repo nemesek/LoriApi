@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LoriApi.Domain
+﻿namespace LoriApi.Domain
 {
     public class ConversationDto
     {
@@ -12,6 +7,7 @@ namespace LoriApi.Domain
         public string UserResponse { get; set; }
         public string DisplayText { get; set; }
         public int Language { get; set; }
+        public bool IsAssertion { get; set; }
 
     }
 }
