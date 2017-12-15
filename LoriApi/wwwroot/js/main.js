@@ -11,7 +11,7 @@ $("#engBtn").click(function() {
     var name = $('#nameInput').val();
     var languageId = 1;
     beginInterview(name, languageId);
-    debugger;
+    //debugger;
 });
 
  $("#spBtn").click(function() {
@@ -21,7 +21,7 @@ $("#engBtn").click(function() {
      var name = $('#nameInput').val();
      var languageId = 2;
      beginInterview(name, languageId);
-     debugger;
+     //debugger;
  });
 
 function beginInterview(name, languageId) {
@@ -44,9 +44,18 @@ function beginInterview(name, languageId) {
       currentModel.name = result.name;
       currentModel.language = result.language;
       // currentReply = $('#status_message').val();
-      debugger;
+
+		$('#beginMessage').hide();
+
+      //debugger;
     }
   });
+}
+
+
+
+function showFileUploadModal() {
+	$('#fileUploader').show();
 }
 
 $("#sendText").click(function() {
@@ -66,12 +75,21 @@ $("#sendText").click(function() {
     success: function(result) {
 
         $('#loriResp1').text(result.displayText);
-        debugger;
+        //debugger;
         currentModel.sentenceId = result.sentenceId;
         currentModel.displayText = result.displayText;
         currentModel.name = result.name;
         currentModel.language = result.language;
         // $('#loriResp1').toggleClass('myresp');
+
+		if (currentModel.sentenceId === 7) {
+			showFileUploadModal();
+		}
+
+		var progress = result.sentenceId * 5;
+
+		$('#progressBar').css('width', progress + '%');
+		$('#progressBar').text(progress + '%');
     }
   });
 });

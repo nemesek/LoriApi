@@ -47,8 +47,8 @@
         <ul class="sidebar-nav">
           <h2 class="pb-2 progress-bar-text">Progress Bar</h2>
           <div class="progress">
-            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-              40% Complete (success)
+            <div id="progressBar" class="progress-bar progress-bar-success" role="progressbar" style="width:1%">
+              1%
             </div>
           </div>
           <li class="sidebar-brand">
@@ -89,6 +89,9 @@
           <div class=""><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fa fa-info" aria-hidden="true"></i></a></div>
           <div class="container">
             <div class="text-center"><img class="lori-img img-responsive" src="assets/LORI.png" alt="Image of Lori"></div>
+
+
+			<div id="beginMessage">
             <h3 class="text-center pt-4 pb-3">Hello! I’m LORI, your personal Mortgage Loan Processing assistant. I’ll help you get pre-approved and on your way to a new home step by step. Ready to go? :)</h3>
             <div class="row">
               <div class="col-md-6 push-md-3">
@@ -103,14 +106,28 @@
                 </div>
               </div>
             </div>
+
             <div class="center-block text-center pt-4">
               <button type="button" id="engBtn" class="btn btn-primary text-uppercase">Let's do this in English</button>
               <button type="button" id="esBtn" class="btn btn-primary text-uppercase">Vamos en Espanol</button>
             </div>
+
+			</div>
+
             <div id="containerForm">
               <h3 id="loriResp2" class="loriResp pt-4 pb-3 text-center"></h3>
-              <h3 id="loriResp1" class="loriResp pt-4 pb-3 text-center" style="color: #0275d8;"></h3>
+              <h3 id="loriResp1" class="loriResp pt-4 pb-3 text-center"></h3>
               <div id="loriResp0" class="loriResp pt-4 pb-3 text-center"></div>
+
+				<div id="fileUploader" style="display:none;">
+					<button class="bg_none" onclick="document.getElementById('w2InfoFile').click()" style="display:block;margin-left: auto;margin-right: auto;">
+						<i class="fa fa-paperclip" aria-hidden="true"></i>
+					</button>
+					<input type="file" id="w2InfoFile" style="opacity: 0;position: absolute;">
+				</div>
+				<div id="spinner" style="text-align:center;margin-top:12px;display:none;">
+					<i class="fa fa-spinner fa-spin fa-5x" style="color: #0275d8;"></i>
+				</div>
               <!-- content end -->
             </div>
           </div>
@@ -158,6 +175,24 @@
       <!-- Menu Toggle Script -->
       <script src="js/jquery.min.js"></script>
       <script src="js/TweenMax.min.js"></script>
+
+		<script>
+			$(function() {
+
+
+				$('#w2InfoFile').change(function() {
+					$('#spinner').show();
+					$('#fileUploader').hide();
+					setTimeout(function(){
+						$('#spinner').hide();
+
+						console.log('Hey Scooby Snacks, put it right here!');
+					}, 5000);
+
+				});
+			});
+		</script>
+
   </body>
 
 </html>
