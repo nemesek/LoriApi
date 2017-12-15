@@ -112,7 +112,7 @@ function getNextSentence() {
                 }, 2000);
             }
 
-            var progress = result.sentenceId * 5;
+            var progress = result.sentenceId * 3;
 
             $('#progressBar').css('width', progress + '%');
             $('#progressBar').text(progress + '%');

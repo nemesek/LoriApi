@@ -5,7 +5,7 @@ namespace LoriApi.Domain
 {
     public class NullSentence : ISentence
     {
-        private string _displayText = "Thanks you too.";
+        private string _displayText = "End of Demo.";
 
         public NullSentence()
         {
