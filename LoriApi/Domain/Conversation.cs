@@ -34,7 +34,7 @@ namespace LoriApi.Domain
         public ConversationDto GetConversationDto(ISentence currentSentence)
         {
             var displayText = _language == 1
-                ? currentSentence.DisplayText(_name) : Translator.TranslateToSpanish(currentSentence);
+                ? currentSentence.DisplayText(_name) : Translator.TranslateToSpanish(currentSentence, _name);
             return new ConversationDto
             {
                 DisplayText = displayText,

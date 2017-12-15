@@ -17,7 +17,7 @@ $("#engBtn").click(function () {
     beginInterview(name, languageId, 1);
 });
 
-$("#spBtn").click(function () {
+$("#esBtn").click(function () {
     var name = $('#nameInput').val();
     var languageId = 2;
     beginInterview(name, languageId, 1);
